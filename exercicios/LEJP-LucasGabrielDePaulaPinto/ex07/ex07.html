@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Médias de Alunos</title>
+  <link rel="stylesheet" href="css/ex07.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Médias de 3 Alunos</h1>
+    <form id="notasForm">
+      <div class="aluno">
+        <h3>Aluno 1</h3>
+        <input type="number" step="any" placeholder="Nota 1" required>
+        <input type="number" step="any" placeholder="Nota 2" required>
+      </div>
+      <div class="aluno">
+        <h3>Aluno 2</h3>
+        <input type="number" step="any" placeholder="Nota 1" required>
+        <input type="number" step="any" placeholder="Nota 2" required>
+      </div>
+      <div class="aluno">
+        <h3>Aluno 3</h3>
+        <input type="number" step="any" placeholder="Nota 1" required>
+        <input type="number" step="any" placeholder="Nota 2" required>
+      </div>
+      <button type="button" onclick="calcularMedias()">Calcular Médias</button>
+    </form>
+    <div id="resultado"></div>
+  </div>
+
+  <script src="js/ex07.js"></script>
+</body>
+</html>
