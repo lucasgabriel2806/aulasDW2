@@ -1,18 +1,20 @@
-function calcular() {
-    const base = parseFloat(document.getElementById("base").value);
-    const altura = parseFloat(document.getElementById("altura").value);
+function verificar() {
+    const nota = parseFloat(document.getElementById("nota").value);
+    const presenca = parseFloat(document.getElementById("presenca").value);
+    const resultado = document.getElementById("resultado");
 
-    if (isNaN(base) || isNaN(altura)) {
-    alert("Por favor, digite valores válidos!");
+    if (isNaN(nota) || isNaN(presenca)) {
+    resultado.innerText = "Por favor, preencha todos os campos.";
     return;
     }
 
-    const area = base * altura;
-    const perimetro = 2 * (base + altura);
-
-    document.getElementById("resultado").innerHTML = `
-    <strong>Resultados:</strong><br>
-    Área: ${area.toFixed(2)}<br>
-    Perímetro: ${perimetro.toFixed(2)}
-    `;
+    if (presenca < 75) {
+    resultado.innerText = "Reprovado por falta.";
+    } else if (nota >= 6) {
+    resultado.innerText = "Aprovado!";
+    } else if (nota >= 4) {
+    resultado.innerText = "Segunda época.";
+    } else {
+    resultado.innerText = "Reprovado.";
+    }
 }

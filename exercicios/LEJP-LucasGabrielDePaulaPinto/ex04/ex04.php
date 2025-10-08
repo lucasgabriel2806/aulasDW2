@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Área e Perímetro do Retângulo - PHP</title>
+  <title>Situação do Aluno (PHP)</title>
   <link rel="stylesheet" href="css/ex04.css">
 </head>
 <body>
-
-  <h1>Área e Perímetro do Retângulo</h1>
+  <h2>Situação do Aluno</h2>
 
   <form method="post">
-    <input type="number" name="base" placeholder="Digite a base" step="0.1" required>
-    <input type="number" name="altura" placeholder="Digite a altura" step="0.1" required>
-    <br>
-    <button type="submit" name="calcular">Calcular</button>
+    <input type="number" name="nota" placeholder="Nota do aluno" step="0.1" required><br>
+    <input type="number" name="presenca" placeholder="% de presença" step="0.1" required><br>
+    <button type="submit">Verificar Situação</button>
   </form>
 
-  <?php
-  if (isset($_POST['calcular'])) {
-      $base = floatval($_POST['base']);
-      $altura = floatval($_POST['altura']);
+  <div id="resultado">
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nota = floatval($_POST["nota"]);
+        $presenca = floatval($_POST["presenca"]);
 
-      $area = $base * $altura;
-      $perimetro = 2 * ($base + $altura);
-
-      echo "<div class='resultado'>
-              <strong>Resultados:</strong><br>
-              Área: " . number_format($area, 2, ',', '.') . "<br>
-              Perímetro: " . number_format($perimetro, 2, ',', '.') . "
-            </div>";
-  }
-  ?>
-
+        if ($presenca < 75) {
+            echo "Reprovado por falta.";
+        } elseif ($nota >= 6) {
+            echo "Aprovado!";
+        } elseif ($nota >= 4) {
+            echo "Segunda época.";
+        } else {
+            echo "Reprovado.";
+        }
+    }
+    ?>
+  </div>
 </body>
 </html>
